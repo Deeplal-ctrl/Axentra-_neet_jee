@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .question { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>NEET Practice Test</h1>
+  <p>Timer: <span id="timer">10:00</span></p>
+  <form id="testForm"></form>
+  <button onclick="submitTest()">Submit Test</button>
+
+  <script>
+    const testForm = document.getElementById("testForm");
+    let questions = [];
+    let score = 0;
+
+    fetch("questions.json")
+      .then(res => res.json())
+      .then(data => {
+        questions = data.questions;
+        questions.forEach((q, index) => {
+          const div = document.createElement("div");
+          div.className = "question";
+          div.innerHTML = "<b>Q" + (index + 1) + ": " + q.q + "</b><br>" +
+            q.options.map((opt, i) =>
+              "<label><input type='radio' name='q" + index + "' value='" + i + "'> " + opt + "</label><br>"
+            ).join("");
+          testForm.appendChild(div);
+        });
+      });
+
+    function submitTest() {
+      score = 0;
+      questions.forEach((q, i) => {
+        const selected = document.querySelector("input[name='q" + i + "']:checked");
+        if (selected && parseInt(selected.value) === q.answer) {
+          score++;
+        }
+      });
+      localStorage.setItem("testScore", score);
+      window.location.href = "result.html";
+    }
+
+    let time = 600;
+    const timer = document.getElementById("timer");
+    const interval = setInterval(() => {
+      const min = Math.floor(time / 60);
+      const sec = time % 60;
+      timer.textContent = `${min}:${sec < 10 ? '0' + sec : sec}`;
+      if (--time < 0) {
+        clearInterval(interval);
+        submitTest();
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
