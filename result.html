@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Result</title>
+</head>
+<body>
+  <h1>Your Result</h1>
+  <p>Score: <span id="score"></span>/3</p>
+  <p>Estimated Rank: <span id="rank"></span></p>
+  <a href="https://t.me/neetace" target="_blank">Join our Telegram</a> |
+  <a href="https://wa.me/your-number">Join WhatsApp</a>
+  <script>
+    const score = parseInt(localStorage.getItem("testScore") || 0);
+    document.getElementById("score").innerText = score;
+    document.getElementById("rank").innerText = score === 3 ? "Top 5%" : score === 2 ? "Top 20%" : "Below Average";
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Result</title>
+</head>
+<body>
+  <h1>Your Result</h1>
+  <p>Score: <span id="score"></span>/3</p>
+  <p>Estimated Rank: <span id="rank"></span></p>
+  <a href="https://t.me/neetace" target="_blank">Join our Telegram</a> |
+  <a href="https://wa.me/your-number">Join WhatsApp</a>
+  <script>
+    const score = parseInt(localStorage.getItem("testScore") || 0);
+    document.getElementById("score").innerText = score;
+    document.getElementById("rank").innerText = score === 3 ? "Top 5%" : score === 2 ? "Top 20%" : "Below Average";
+  </script>
+</body>
+</html>
