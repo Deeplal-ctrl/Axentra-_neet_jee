@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NEET Ace Test Portal</title>
+</head>
+<body>
+  <h1>NEET Ace - Test Unlock Portal</h1>
+  <button onclick="googleLogin()">Login with Google</button>
+  <p id="status"></p>
+  <a id="unlockLink" href="#" style="display:none;" target="_blank">Click to Unlock Test (via Token)</a>
+  <br/><br/>
+  <button onclick="startTest()" style="display:none;" id="startTestBtn">Start Test</button>
+  <br/><br/>
+  <a href="https://t.me/neetace" target="_blank">Join Telegram</a> |
+  <a href="https://wa.me/your-number" target="_blank">Join WhatsApp</a>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
